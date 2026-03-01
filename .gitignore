@@ -1,0 +1,14 @@
+# sbt
+target/
+project/target/
+project/project/
+
+# IDE
+.idea/
+.vscode/
+*.metals/
+.bsp/
+.scala-build/
+
+# OS
+.DS_Store
