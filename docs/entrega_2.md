@@ -1,8 +1,3 @@
----
-title: "Entrega 2: Tipos de datos y estructuras de datos"
-nav_order: 3
----
-
 # Fase 2: Revisión inicial de Tipos de datos y Estructuras de datos
 
 **Universidad del Valle de Guatemala**  

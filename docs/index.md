@@ -1,8 +1,3 @@
----
-title: Inicio
-nav_order: 1
----
-
 # Investigación: Scala
 
 **Universidad del Valle de Guatemala**  
@@ -16,8 +11,8 @@ Scala es un lenguaje de programación que corre sobre la JVM y combina programac
 
 | # | Entrega | Estado |
 |---|---------|--------|
-| 1 | [Hola Mundo](entrega_1) | Completada |
-| 2 | [Tipos de datos y estructuras de datos](entrega_2) | Completada |
+| 1 | [Hola Mundo](entrega_1.md) | Completada |
+| 2 | [Tipos de datos y estructuras de datos](entrega_2.md) | Completada |
 | 3 | Programa de ejemplo | Pendiente |
 | 4 | Estructuras de datos | Pendiente |
 | 5 | Casos de uso | Pendiente |

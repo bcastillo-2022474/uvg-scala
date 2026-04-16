@@ -1,8 +1,3 @@
----
-title: "Entrega 1: Hola Mundo"
-nav_order: 2
----
-
 # Entrega 1: Hola Mundo
 
 ## Ambiente de desarrollo

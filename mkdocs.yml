@@ -1,0 +1,45 @@
+site_name: "Investigación: Scala"
+site_description: "CC2016 – Algoritmos y Estructura de Datos · UVG"
+site_url: "https://bcastillo-2022474.github.io/uvg-scala/"
+repo_url: "https://github.com/bcastillo-2022474/uvg-scala"
+repo_name: "bcastillo-2022474/uvg-scala"
+
+docs_dir: docs
+
+nav:
+  - Inicio: index.md
+  - Entrega 1 - Hola Mundo: entrega_1.md
+  - Entrega 2 - Tipos de datos: entrega_2.md
+
+theme:
+  name: material
+  language: es
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    - scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+  features:
+    - navigation.instant
+    - navigation.top
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - tables
+  - admonition
+  - attr_list
