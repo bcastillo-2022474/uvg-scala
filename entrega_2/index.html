@@ -1,0 +1,1277 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="CC2016 – Algoritmos y Estructura de Datos · UVG">
+      
+      
+      
+        <link rel="canonical" href="https://bcastillo-2022474.github.io/uvg-scala/entrega_2/">
+      
+      
+        <link rel="prev" href="../entrega_1/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Entrega 2 - Tipos de datos - Investigación: Scala</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fase-2-revision-inicial-de-tipos-de-datos-y-estructuras-de-datos" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Investigación: Scala" class="md-header__button md-logo" aria-label="Investigación: Scala" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Investigación: Scala
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Entrega 2 - Tipos de datos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/bcastillo-2022474/uvg-scala" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bcastillo-2022474/uvg-scala
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Investigación: Scala" class="md-nav__button md-logo" aria-label="Investigación: Scala" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Investigación: Scala
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/bcastillo-2022474/uvg-scala" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bcastillo-2022474/uvg-scala
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entrega_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrega 1 - Hola Mundo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrega 2 - Tipos de datos
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrega 2 - Tipos de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-jerarquia-de-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Jerarquía de tipos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tipos-de-datos-primitivos-anyval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Tipos de datos primitivos (AnyVal)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tipado-del-lenguaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tipado del lenguaje
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Tipado del lenguaje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-tipado-fuerte-strongly-typed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Tipado fuerte (strongly typed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-inferencia-de-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Inferencia de tipos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-val-vs-var" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 val vs var
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-estructuras-de-datos-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Estructuras de datos principales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Estructuras de datos principales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-list-lista-enlazada-inmutable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 List — lista enlazada inmutable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-vector-secuencia-indexada-inmutable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Vector — secuencia indexada inmutable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-array-arreglo-mutable-jvm-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Array — arreglo mutable (JVM array)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-set-conjunto-sin-duplicados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Set — conjunto sin duplicados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-map-tabla-clave-valor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Map — tabla clave → valor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-tuple-coleccion-heterogenea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 Tuple — colección heterogénea
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-option-alternativa-segura-a-null" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 Option — alternativa segura a null
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-colecciones-mutables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Colecciones mutables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-programa-de-ejemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Programa de ejemplo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-comparacion-scala-vs-java-vs-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Comparación Scala vs Java vs Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Recursos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-jerarquia-de-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Jerarquía de tipos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tipos-de-datos-primitivos-anyval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Tipos de datos primitivos (AnyVal)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tipado-del-lenguaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tipado del lenguaje
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Tipado del lenguaje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-tipado-fuerte-strongly-typed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Tipado fuerte (strongly typed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-inferencia-de-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Inferencia de tipos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-val-vs-var" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 val vs var
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-estructuras-de-datos-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Estructuras de datos principales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Estructuras de datos principales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-list-lista-enlazada-inmutable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 List — lista enlazada inmutable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-vector-secuencia-indexada-inmutable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Vector — secuencia indexada inmutable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-array-arreglo-mutable-jvm-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Array — arreglo mutable (JVM array)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-set-conjunto-sin-duplicados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Set — conjunto sin duplicados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-map-tabla-clave-valor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Map — tabla clave → valor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-tuple-coleccion-heterogenea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 Tuple — colección heterogénea
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-option-alternativa-segura-a-null" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 Option — alternativa segura a null
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-colecciones-mutables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Colecciones mutables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-programa-de-ejemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Programa de ejemplo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-comparacion-scala-vs-java-vs-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Comparación Scala vs Java vs Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Recursos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="fase-2-revision-inicial-de-tipos-de-datos-y-estructuras-de-datos">Fase 2: Revisión inicial de Tipos de datos y Estructuras de datos</h1>
+<p><strong>Universidad del Valle de Guatemala</strong><br />
+<strong>CC2016 – Algoritmos y Estructura de Datos</strong><br />
+<strong>Lenguaje investigado: Scala 3</strong></p>
+<hr />
+<h2 id="1-introduccion">1. Introducción</h2>
+<p>Scala corre sobre la JVM (Java Virtual Machine), lo que le permite interoperar directamente con código Java. Sin embargo, su sistema de tipos va considerablemente más allá del de Java: <strong>todo es un objeto</strong>, incluyendo los tipos que Java trata como primitivos (<code>int</code>, <code>boolean</code>, etc.). Esta decisión de diseño simplifica el modelo mental del lenguaje y habilita capacidades del paradigma funcional que en Java serían mucho más verbosas.</p>
+<hr />
+<h2 id="2-jerarquia-de-tipos">2. Jerarquía de tipos</h2>
+<p>En Scala existe una jerarquía de tipos unificada. A diferencia de Java, no hay separación entre tipos primitivos y tipos de referencia a nivel del lenguaje:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Any
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── AnyVal  (tipos de valor — compilados como primitivos JVM)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   ├── Int, Long, Short, Byte
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│   ├── Double, Float
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│   ├── Char, Boolean
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│   └── Unit  (equivalente a void)
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>└── AnyRef  (tipos de referencia — equivale a java.lang.Object)
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    ├── String
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    ├── List, Array, Map, ...
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    └── (cualquier clase definida por el usuario)
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>Nothing  // subtipo de todo — representa ausencia de valor (ej: excepciones)
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>Null     // subtipo de AnyRef — solo existe por compatibilidad con Java
+</span></code></pre></div>
+<p><strong><code>Any</code></strong> es la raíz de toda la jerarquía. Cualquier valor en Scala es instancia de <code>Any</code>.<br />
+<strong><code>Nothing</code></strong> es útil en tipos de retorno cuando una función nunca regresa normalmente (lanza excepción o entra en loop infinito).</p>
+<p><strong>Comparación con Java:</strong> en Java, <code>int</code> y <code>Integer</code> son cosas distintas (boxing/unboxing explícito o implícito). En Scala, <code>Int</code> es siempre <code>Int</code> — el compilador decide si usar el primitivo JVM o el wrapper de forma transparente.</p>
+<hr />
+<h2 id="3-tipos-de-datos-primitivos-anyval">3. Tipos de datos primitivos (AnyVal)</h2>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Tamaño</th>
+<th>Rango / descripción</th>
+<th>Equivalente Java</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Int</code></td>
+<td>32 bits</td>
+<td>−2,147,483,648 a 2,147,483,647</td>
+<td><code>int</code></td>
+</tr>
+<tr>
+<td><code>Long</code></td>
+<td>64 bits</td>
+<td>±9.2 × 10¹⁸</td>
+<td><code>long</code></td>
+</tr>
+<tr>
+<td><code>Short</code></td>
+<td>16 bits</td>
+<td>−32,768 a 32,767</td>
+<td><code>short</code></td>
+</tr>
+<tr>
+<td><code>Byte</code></td>
+<td>8 bits</td>
+<td>−128 a 127</td>
+<td><code>byte</code></td>
+</tr>
+<tr>
+<td><code>Double</code></td>
+<td>64 bits</td>
+<td>punto flotante doble precisión</td>
+<td><code>double</code></td>
+</tr>
+<tr>
+<td><code>Float</code></td>
+<td>32 bits</td>
+<td>punto flotante simple precisión</td>
+<td><code>float</code></td>
+</tr>
+<tr>
+<td><code>Char</code></td>
+<td>16 bits</td>
+<td>caracter Unicode (U+0000 a U+FFFF)</td>
+<td><code>char</code></td>
+</tr>
+<tr>
+<td><code>Boolean</code></td>
+<td>—</td>
+<td><code>true</code> / <code>false</code></td>
+<td><code>boolean</code></td>
+</tr>
+<tr>
+<td><code>Unit</code></td>
+<td>—</td>
+<td>un solo valor <code>()</code>, sin información</td>
+<td><code>void</code></td>
+</tr>
+</tbody>
+</table>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">val</span><span class="w"> </span><span class="n">entero</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">val</span><span class="w"> </span><span class="n">largo</span><span class="p">:</span><span class="w"> </span><span class="nc">Long</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="n">_000_000_000L</span><span class="w">   </span><span class="c1">// L al final = literal Long</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">val</span><span class="w"> </span><span class="n">decimal</span><span class="p">:</span><span class="w"> </span><span class="nc">Double</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kd">val</span><span class="w"> </span><span class="n">flotante</span><span class="p">:</span><span class="w"> </span><span class="nc">Float</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mf">2.71f</span><span class="w">            </span><span class="c1">// f al final = literal Float</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kd">val</span><span class="w"> </span><span class="n">byte</span><span class="p">:</span><span class="w"> </span><span class="nc">Byte</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">127</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kd">val</span><span class="w"> </span><span class="n">corto</span><span class="p">:</span><span class="w"> </span><span class="nc">Short</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="n">_000</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kd">val</span><span class="w"> </span><span class="n">caracter</span><span class="p">:</span><span class="w"> </span><span class="nc">Char</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;S&#39;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="kd">val</span><span class="w"> </span><span class="n">bandera</span><span class="p">:</span><span class="w"> </span><span class="nc">Boolean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</span></code></pre></div>
+<hr />
+<h2 id="4-tipado-del-lenguaje">4. Tipado del lenguaje</h2>
+<h3 id="41-tipado-fuerte-strongly-typed">4.1 Tipado fuerte (strongly typed)</h3>
+<p>Scala es un lenguaje <strong>fuertemente tipado</strong>: cada valor tiene un tipo definido en tiempo de compilación y no se realizan conversiones implícitas entre tipos incompatibles. Esto significa que errores de tipo se detectan <strong>antes de ejecutar</strong> el programa.</p>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">val</span><span class="w"> </span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hola&quot;</span><span class="w">   </span><span class="c1">// ERROR en compilación — String no es Int</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">val</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="w">     </span><span class="c1">// ERROR en compilación — Double no es Int</span>
+</span></code></pre></div>
+<p>En Java también hay tipado fuerte, pero Scala lo lleva más lejos porque no permite el widening automático entre numericales sin cast explícito en todos los contextos.</p>
+<h3 id="42-inferencia-de-tipos">4.2 Inferencia de tipos</h3>
+<p>Aunque el tipado es fuerte, Scala tiene <strong>inferencia de tipos</strong>: el compilador puede deducir el tipo de una variable por su valor inicial, por lo que no siempre es necesario escribirlo:</p>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">val</span><span class="w"> </span><span class="n">inferido</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w">          </span><span class="c1">// el compilador deduce: Int</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">val</span><span class="w"> </span><span class="n">nombre</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Scala&quot;</span><span class="w">      </span><span class="c1">// el compilador deduce: String</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">val</span><span class="w"> </span><span class="n">lista</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">   </span><span class="c1">// el compilador deduce: List[Int]</span>
+</span></code></pre></div>
+<p>Esto <strong>no</strong> es tipado dinámico. El tipo sigue siendo verificado en compilación; simplemente no tienes que escribirlo explícitamente.</p>
+<p><strong>Comparación con Python:</strong> Python es dinámicamente tipado — el tipo de una variable puede cambiar en tiempo de ejecución. En Scala, una vez que el compilador infirió <code>Int</code>, no puedes asignar un <code>String</code> a esa variable.</p>
+<h3 id="43-val-vs-var">4.3 <code>val</code> vs <code>var</code></h3>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Mutabilidad</th>
+<th>Equivalente en Java</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>val</code></td>
+<td>inmutable (no puede reasignarse)</td>
+<td><code>final</code></td>
+</tr>
+<tr>
+<td><code>var</code></td>
+<td>mutable (puede reasignarse)</td>
+<td>variable normal</td>
+</tr>
+</tbody>
+</table>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">val</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">// pi = 3.0   // ERROR — no se puede reasignar un val</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kd">var</span><span class="w"> </span><span class="n">contador</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">contador</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contador</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="c1">// OK</span>
+</span></code></pre></div>
+<p>La convención en Scala idiomático es preferir <code>val</code> siempre que sea posible, ya que facilita el razonamiento sobre el código (programación funcional).</p>
+<hr />
+<h2 id="5-estructuras-de-datos-principales">5. Estructuras de datos principales</h2>
+<p>Scala tiene una librería de colecciones muy completa. La distinción más importante es <strong>inmutable vs mutable</strong>:</p>
+<ul>
+<li><code>scala.collection.immutable</code> — importado por defecto. Las operaciones devuelven <strong>nuevas</strong> colecciones en lugar de modificar la original.</li>
+<li><code>scala.collection.mutable</code> — requiere import explícito. Permite modificar la colección en su lugar.</li>
+</ul>
+<h3 id="51-list-lista-enlazada-inmutable">5.1 List — lista enlazada inmutable</h3>
+<p>Lista ordenada de elementos del mismo tipo. Internamente es una lista enlazada singly-linked. Óptima para operaciones en la cabeza (<code>head</code>/<code>::</code>).</p>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">val</span><span class="w"> </span><span class="n">numeros</span><span class="p">:</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">Int</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">val</span><span class="w"> </span><span class="n">conPrepend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">numeros</span><span class="w">          </span><span class="c1">// agrega al frente — O(1)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kd">val</span><span class="w"> </span><span class="n">concatenada</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numeros</span><span class="w"> </span><span class="o">:::</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="w"> </span><span class="c1">// concatena dos listas</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">numeros</span><span class="p">.</span><span class="n">head</span><span class="w">            </span><span class="c1">// 10</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">numeros</span><span class="p">.</span><span class="n">tail</span><span class="w">            </span><span class="c1">// List(20, 30, 40, 50)</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">numeros</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">25</span><span class="p">)</span><span class="w">  </span><span class="c1">// List(30, 40, 50)</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">numeros</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">      </span><span class="c1">// List(20, 40, 60, 80, 100)</span>
+</span></code></pre></div>
+<p><strong>vs Java:</strong> equivale a <code>List&lt;Integer&gt;</code> inmutable. En Java no existe una lista inmutable de primera clase en la librería estándar (sin <code>Collections.unmodifiableList</code>).<br />
+<strong>vs Python:</strong> las listas de Python son mutables por defecto. <code>List</code> en Scala es inmutable — para mutar se usa <code>ListBuffer</code>.</p>
+<h3 id="52-vector-secuencia-indexada-inmutable">5.2 Vector — secuencia indexada inmutable</h3>
+<p>Acceso por índice eficiente (<code>O(log₃₂ n)</code> ≈ constante en práctica). Reemplaza a <code>List</code> cuando se necesita acceso aleatorio frecuente.</p>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">val</span><span class="w"> </span><span class="n">vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Vector</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;d&quot;</span><span class="p">)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">vec</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">                    </span><span class="c1">// &quot;c&quot;  — acceso por índice</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">vec</span><span class="p">.</span><span class="n">updated</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Z&quot;</span><span class="p">)</span><span class="w">       </span><span class="c1">// Vector(&quot;a&quot;, &quot;Z&quot;, &quot;c&quot;, &quot;d&quot;) — nueva copia</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">vec</span><span class="w"> </span><span class="o">:+</span><span class="w"> </span><span class="s">&quot;e&quot;</span><span class="w">                </span><span class="c1">// Vector(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;) — append</span>
+</span></code></pre></div>
+<h3 id="53-array-arreglo-mutable-jvm-array">5.3 Array — arreglo mutable (JVM array)</h3>
+<p>Equivalente directo al array de Java. Mutable, tamaño fijo, acceso <code>O(1)</code> por índice. Útil cuando se necesita interoperabilidad con Java o rendimiento máximo.</p>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">val</span><span class="w"> </span><span class="n">arreglo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">arreglo</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">99</span><span class="w">             </span><span class="c1">// mutación directa — arreglo es ahora [99, 2, 3, 4, 5]</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">arreglo</span><span class="p">.</span><span class="n">length</span><span class="w">              </span><span class="c1">// 5</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">arreglo</span><span class="p">.</span><span class="n">mkString</span><span class="p">(</span><span class="s">&quot;, &quot;</span><span class="p">)</span><span class="w">      </span><span class="c1">// &quot;99, 2, 3, 4, 5&quot;</span>
+</span></code></pre></div>
+<p><strong>vs Java:</strong> <code>int[]</code> — prácticamente idéntico a nivel JVM.</p>
+<h3 id="54-set-conjunto-sin-duplicados">5.4 Set — conjunto sin duplicados</h3>
+<p>Colección que no permite elementos repetidos. El orden no está garantizado (a diferencia de <code>SortedSet</code>).</p>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">val</span><span class="w"> </span><span class="n">conjunto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Set</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w">   </span><span class="c1">// Set(1, 2, 3) — duplicados eliminados</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">conjunto</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="w">          </span><span class="c1">// Set(1, 2, 3, 4)  — nuevo Set</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">conjunto</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w">          </span><span class="c1">// Set(2, 3)        — nuevo Set</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">conjunto</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">  </span><span class="c1">// true</span>
+</span></code></pre></div>
+<h3 id="55-map-tabla-clave-valor">5.5 Map — tabla clave → valor</h3>
+<p>Almacena pares clave-valor. Inmutable por defecto. La sintaxis <code>-&gt;</code> crea una tupla <code>(clave, valor)</code>.</p>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">val</span><span class="w"> </span><span class="n">edades</span><span class="p">:</span><span class="w"> </span><span class="nc">Map</span><span class="p">[</span><span class="nc">String</span><span class="p">,</span><span class="w"> </span><span class="nc">Int</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;Ana&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luis&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">edades</span><span class="p">(</span><span class="s">&quot;Ana&quot;</span><span class="p">)</span><span class="w">          </span><span class="c1">// 20  — lanza excepción si la clave no existe</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">edades</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;Pedro&quot;</span><span class="p">)</span><span class="w">    </span><span class="c1">// None — seguro, devuelve Option</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">edades</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Mia&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">22</span><span class="p">)</span><span class="w"> </span><span class="c1">// nuevo Map con la entrada agregada</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="n">edades</span><span class="p">.</span><span class="n">keys</span><span class="w">            </span><span class="c1">// Iterable con las claves</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">edades</span><span class="p">.</span><span class="n">values</span><span class="w">          </span><span class="c1">// Iterable con los valores</span>
+</span></code></pre></div>
+<p><strong>vs Java:</strong> equivale a <code>Map&lt;String, Integer&gt;</code> de Java, pero inmutable y con acceso seguro vía <code>Option</code>.</p>
+<h3 id="56-tuple-coleccion-heterogenea">5.6 Tuple — colección heterogénea</h3>
+<p>Agrupa un número fijo de valores que pueden tener tipos distintos. Útil para retornar múltiples valores de una función sin crear una clase.</p>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">val</span><span class="w"> </span><span class="n">persona</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="nc">String</span><span class="p">,</span><span class="w"> </span><span class="nc">Int</span><span class="p">,</span><span class="w"> </span><span class="nc">Boolean</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;João&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">persona</span><span class="p">.</span><span class="n">_1</span><span class="w">   </span><span class="c1">// &quot;João&quot;  — acceso por posición (base 1)</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">persona</span><span class="p">.</span><span class="n">_2</span><span class="w">   </span><span class="c1">// 21</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">persona</span><span class="p">.</span><span class="n">_3</span><span class="w">   </span><span class="c1">// true</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1">// Desestructuración (más legible)</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="kd">val</span><span class="w"> </span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">edad</span><span class="p">,</span><span class="w"> </span><span class="n">activo</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">persona</span>
+</span></code></pre></div>
+<p>Scala soporta hasta <code>Tuple22</code>. En Scala 3 se puede usar <code>*:</code> para tuplas genéricas.</p>
+<p><strong>vs Java:</strong> Java no tiene tuplas nativas. Se usan <code>Pair&lt;A,B&gt;</code> de librerías externas o clases propias.<br />
+<strong>vs Python:</strong> Python tiene <code>tuple</code> nativo con sintaxis muy similar <code>(a, b, c)</code>.</p>
+<h3 id="57-option-alternativa-segura-a-null">5.7 Option — alternativa segura a <code>null</code></h3>
+<p><code>Option[A]</code> es un contenedor que puede tener:
+- <code>Some(valor)</code> — hay un valor presente
+- <code>None</code> — no hay valor (equivalente semántico de <code>null</code>, pero type-safe)</p>
+<p>Esto elimina la posibilidad de <code>NullPointerException</code> cuando se usa correctamente.</p>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">val</span><span class="w"> </span><span class="n">capital</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;Guatemala&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Ciudad de Guatemala&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;México&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;CDMX&quot;</span><span class="p">)</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">capital</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;Guatemala&quot;</span><span class="p">)</span><span class="w">   </span><span class="c1">// Some(&quot;Ciudad de Guatemala&quot;)</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">capital</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;Honduras&quot;</span><span class="p">)</span><span class="w">    </span><span class="c1">// None</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1">// Patrón match — la forma idiomática de manejar Option</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">capital</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;Honduras&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="nc">Some</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Capital: </span><span class="si">$</span><span class="n">c</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="nc">None</span><span class="w">    </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;País no encontrado&quot;</span><span class="p">)</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="p">}</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="c1">// O directamente con getOrElse</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="n">capital</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;Honduras&quot;</span><span class="p">).</span><span class="n">getOrElse</span><span class="p">(</span><span class="s">&quot;desconocida&quot;</span><span class="p">)</span><span class="w">   </span><span class="c1">// &quot;desconocida&quot;</span>
+</span></code></pre></div>
+<p><strong>vs Java:</strong> Java tiene <code>Optional&lt;T&gt;</code> desde Java 8, con la misma idea. Scala lo usa de forma mucho más ubicua en toda su librería estándar.</p>
+<hr />
+<h2 id="6-colecciones-mutables">6. Colecciones mutables</h2>
+<p>Cuando se necesita mutabilidad explícita, se importa <code>scala.collection.mutable</code>:</p>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">import</span><span class="w"> </span><span class="nn">scala</span><span class="p">.</span><span class="nn">collection</span><span class="p">.</span><span class="n">mutable</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kd">val</span><span class="w"> </span><span class="n">lista</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutable</span><span class="p">.</span><span class="nc">ListBuffer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">lista</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">4</span><span class="w">   </span><span class="c1">// agrega</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">lista</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="w">   </span><span class="c1">// elimina</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1">// lista: ListBuffer(2, 3, 4)</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="kd">val</span><span class="w"> </span><span class="n">mapa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutable</span><span class="p">.</span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="n">mapa</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="c1">// mapa: HashMap(x -&gt; 10, y -&gt; 20)</span>
+</span></code></pre></div>
+<p>La recomendación general en Scala es iniciar con colecciones inmutables y solo recurrir a las mutables cuando hay una razón de rendimiento comprobada.</p>
+<hr />
+<h2 id="7-programa-de-ejemplo">7. Programa de ejemplo</h2>
+<p>El siguiente programa ejecutable (<code>src/main/scala/DataTypes.scala</code>) demuestra todos los conceptos anteriores en un solo archivo:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sbt<span class="w"> </span><span class="s2">&quot;runMain DataTypes&quot;</span>
+</span></code></pre></div>
+<p>Salida:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>=== Tipos primitivos (AnyVal) ===
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Int:     42  (int)
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Long:    9000000000  (long)
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>Double:  3.14159  (double)
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>...
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>=== List (inmutable) ===
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>numeros:    List(10, 20, 30, 40, 50)
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>filtrar pares: List(20, 40)
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>map x2:        List(20, 40, 60, 80, 100)
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>...
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>=== Option (evita NullPointerException) ===
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>  Guatemala → Ciudad de Guatemala
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>  Honduras → no encontrado
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>  México → CDMX
+</span></code></pre></div></p>
+<hr />
+<h2 id="8-comparacion-scala-vs-java-vs-python">8. Comparación Scala vs Java vs Python</h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Scala</th>
+<th>Java</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipado</td>
+<td>Fuerte + estático + inferido</td>
+<td>Fuerte + estático (verbose)</td>
+<td>Fuerte + dinámico</td>
+</tr>
+<tr>
+<td>Primitivos</td>
+<td>No existen en el lenguaje (<code>Int</code> = objeto)</td>
+<td>Sí (<code>int</code>, <code>double</code>, etc.)</td>
+<td>No existen (todo es objeto)</td>
+</tr>
+<tr>
+<td>Inferencia de tipos</td>
+<td>Sí (<code>val x = 5</code>)</td>
+<td>Desde Java 10 (<code>var x = 5</code>)</td>
+<td>Innecesaria (tipado dinámico)</td>
+</tr>
+<tr>
+<td>Nulabilidad</td>
+<td><code>Option[T]</code> evita null</td>
+<td><code>null</code> + <code>Optional&lt;T&gt;</code> (Java 8+)</td>
+<td><code>None</code> + errores en runtime</td>
+</tr>
+<tr>
+<td>Listas</td>
+<td>Inmutables por defecto</td>
+<td>Mutables por defecto</td>
+<td>Mutables por defecto</td>
+</tr>
+<tr>
+<td>Colecciones inmutables</td>
+<td>Primera clase en stdlib</td>
+<td>Wrappers (<code>Collections.unmodifiableX</code>)</td>
+<td><code>tuple</code>, <code>frozenset</code> (limitado)</td>
+</tr>
+<tr>
+<td>Tuplas</td>
+<td><code>(A, B, C)</code> nativas</td>
+<td>No nativas (librerías externas)</td>
+<td><code>(a, b, c)</code> nativas</td>
+</tr>
+<tr>
+<td>Interop JVM</td>
+<td>Nativa</td>
+<td>—</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-recursos">9. Recursos</h2>
+<ul>
+<li>Documentación oficial de tipos: https://docs.scala-lang.org/tour/unified-types.html  </li>
+<li>Colecciones de Scala: https://docs.scala-lang.org/overviews/collections-2.13/introduction.html  </li>
+<li>Tour de Scala: https://docs.scala-lang.org/tour/tour-of-scala.html  </li>
+<li>Entorno en línea (Scastie): https://scastie.scala-lang.org/</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.top", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
