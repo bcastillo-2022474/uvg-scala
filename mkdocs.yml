@@ -10,6 +10,7 @@ nav:
   - Inicio: index.md
   - Entrega 1 - Hola Mundo: entrega_1.md
   - Entrega 2 - Tipos de datos: entrega_2.md
+  - Entrega 3 - Programa de ejemplo: entrega_3.md
 
 theme:
   name: material

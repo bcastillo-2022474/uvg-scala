@@ -13,7 +13,7 @@ Scala es un lenguaje de programación que corre sobre la JVM y combina programac
 |---|---------|--------|
 | 1 | [Hola Mundo](entrega_1.md) | Completada |
 | 2 | [Tipos de datos y estructuras de datos](entrega_2.md) | Completada |
-| 3 | Programa de ejemplo | Pendiente |
+| 3 | [Programa de ejemplo](entrega_3.md) | Completada |
 | 4 | Estructuras de datos | Pendiente |
 | 5 | Casos de uso | Pendiente |
 
