@@ -1,0 +1,1197 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="CC2016 – Algoritmos y Estructura de Datos · UVG">
+      
+      
+      
+        <link rel="canonical" href="https://bcastillo-2022474.github.io/uvg-scala/entrega_4/">
+      
+      
+        <link rel="prev" href="../entrega_3/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Entrega 4 - Estructuras de datos - Investigación: Scala</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#entrega-4-estructuras-de-datos" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Investigación: Scala" class="md-header__button md-logo" aria-label="Investigación: Scala" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Investigación: Scala
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Entrega 4 - Estructuras de datos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/bcastillo-2022474/uvg-scala" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bcastillo-2022474/uvg-scala
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Investigación: Scala" class="md-nav__button md-logo" aria-label="Investigación: Scala" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Investigación: Scala
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/bcastillo-2022474/uvg-scala" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bcastillo-2022474/uvg-scala
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entrega_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrega 1 - Hola Mundo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entrega_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrega 2 - Tipos de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entrega_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrega 3 - Programa de ejemplo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrega 4 - Estructuras de datos
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrega 4 - Estructuras de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-para-que-tipos-de-problemas-es-scala-mas-adecuado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ¿Para qué tipos de problemas es Scala más adecuado?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-problema-resolucion-de-dependencias-topological-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Problema: Resolución de dependencias (Topological Sort)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-estructura-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Estructura del proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-graphscala-el-grafo-como-estructura-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Graph.scala — El grafo como estructura de datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Graph.scala — El grafo como estructura de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operaciones-derivadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operaciones derivadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estructura-de-datos-en-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estructura de datos en uso
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-resolverscala-dos-algoritmos-mismas-estructuras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Resolver.scala — Dos algoritmos, mismas estructuras
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Resolver.scala — Dos algoritmos, mismas estructuras">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-algoritmo-de-kahn-bfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Algoritmo de Kahn (BFS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-dfs-topologico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 DFS topológico
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-salida-del-programa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Salida del programa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-resumen-de-estructuras-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Resumen de estructuras de datos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-comparacion-kahn-vs-dfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Comparación Kahn vs DFS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Recursos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-para-que-tipos-de-problemas-es-scala-mas-adecuado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ¿Para qué tipos de problemas es Scala más adecuado?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-problema-resolucion-de-dependencias-topological-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Problema: Resolución de dependencias (Topological Sort)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-estructura-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Estructura del proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-graphscala-el-grafo-como-estructura-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Graph.scala — El grafo como estructura de datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Graph.scala — El grafo como estructura de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operaciones-derivadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operaciones derivadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estructura-de-datos-en-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estructura de datos en uso
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-resolverscala-dos-algoritmos-mismas-estructuras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Resolver.scala — Dos algoritmos, mismas estructuras
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Resolver.scala — Dos algoritmos, mismas estructuras">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-algoritmo-de-kahn-bfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Algoritmo de Kahn (BFS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-dfs-topologico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 DFS topológico
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-salida-del-programa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Salida del programa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-resumen-de-estructuras-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Resumen de estructuras de datos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-comparacion-kahn-vs-dfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Comparación Kahn vs DFS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Recursos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="entrega-4-estructuras-de-datos">Entrega 4: Estructuras de Datos</h1>
+<p><strong>Universidad del Valle de Guatemala</strong><br />
+<strong>CC2016 – Algoritmos y Estructura de Datos</strong><br />
+<strong>Lenguaje investigado: Scala 3</strong></p>
+<hr />
+<h2 id="1-para-que-tipos-de-problemas-es-scala-mas-adecuado">1. ¿Para qué tipos de problemas es Scala más adecuado?</h2>
+<p>Scala brilla en situaciones donde se combinan <strong>transformaciones de datos complejas</strong> y <strong>corrección por construcción</strong> (errores detectados en compilación, no en runtime). Los dominios más naturales son:</p>
+<table>
+<thead>
+<tr>
+<th>Dominio</th>
+<th>Por qué Scala encaja</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Procesamiento de datos / ETL</td>
+<td>Colecciones inmutables + <code>map/filter/flatMap</code> expresivos</td>
+</tr>
+<tr>
+<td>Sistemas distribuidos (Akka)</td>
+<td>Modelo de actores + tipos que previenen estado compartido</td>
+</tr>
+<tr>
+<td>Compiladores / intérpretes</td>
+<td>ADTs + pattern matching exhaustivo para ASTs</td>
+</tr>
+<tr>
+<td>Servicios web (Play, http4s)</td>
+<td>Tipos para efectos, errores manejados como valores</td>
+</tr>
+<tr>
+<td>Big Data (Apache Spark)</td>
+<td>Spark está escrito en Scala; su API es idiomática Scala</td>
+</tr>
+<tr>
+<td>Algoritmos sobre grafos</td>
+<td>Inmutabilidad facilita razonamiento sobre estado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-problema-resolucion-de-dependencias-topological-sort">2. Problema: Resolución de dependencias (Topological Sort)</h2>
+<p>Un <strong>resolvedor de dependencias</strong> determina en qué orden construir/instalar elementos que dependen unos de otros. Es el problema central de herramientas como <code>npm</code>, <code>pip</code>, <code>apt</code>, Maven, o un sistema de build como <code>sbt</code> mismo.</p>
+<p>El problema se modela como un <strong>grafo dirigido acíclico (DAG)</strong>:
+- <strong>Nodos</strong> = paquetes / cursos / tareas
+- <strong>Arista A → B</strong> = "B depende de A" (A debe construirse antes)
+- <strong>Objetivo</strong> = orden lineal donde cada nodo aparece después de todos sus predecesores</p>
+<p>Si el grafo tiene un ciclo (A → B → C → A), no existe orden válido → el resolvedor debe detectarlo.</p>
+<hr />
+<h2 id="3-estructura-del-proyecto">3. Estructura del proyecto</h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>src/main/scala/entrega4/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── Graph.scala    ← representación del grafo (Map + Set)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── Resolver.scala ← dos algoritmos: Kahn (BFS) y DFS
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>└── Main4.scala    ← cuatro escenarios de prueba
+</span></code></pre></div>
+<hr />
+<h2 id="4-graphscala-el-grafo-como-estructura-de-datos">4. <code>Graph.scala</code> — El grafo como estructura de datos</h2>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Graph</span><span class="p">(</span><span class="n">edges</span><span class="p">:</span><span class="w"> </span><span class="nc">Map</span><span class="p">[</span><span class="nc">String</span><span class="p">,</span><span class="w"> </span><span class="nc">Set</span><span class="p">[</span><span class="nc">String</span><span class="p">]])</span>
+</span></code></pre></div>
+<p>El grafo completo vive en un <strong><code>Map[String, Set[String]]</code></strong>: cada nodo mapea al conjunto de nodos de los que depende. Usar <code>Set</code> (no <code>List</code>) para las dependencias elimina duplicados automáticamente y da búsqueda O(1).</p>
+<h3 id="operaciones-derivadas">Operaciones derivadas</h3>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">nodes</span><span class="p">:</span><span class="w"> </span><span class="nc">Set</span><span class="p">[</span><span class="nc">String</span><span class="p">]</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="n">edges</span><span class="p">.</span><span class="n">keySet</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">edges</span><span class="p">.</span><span class="n">values</span><span class="p">.</span><span class="n">flatten</span><span class="p">.</span><span class="n">toSet</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">dependents</span><span class="p">:</span><span class="w"> </span><span class="nc">Map</span><span class="p">[</span><span class="nc">String</span><span class="p">,</span><span class="w"> </span><span class="nc">Set</span><span class="p">[</span><span class="nc">String</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="n">nodes</span><span class="p">.</span><span class="n">foldLeft</span><span class="p">(</span><span class="nc">Map</span><span class="p">.</span><span class="n">empty</span><span class="p">[</span><span class="nc">String</span><span class="p">,</span><span class="w"> </span><span class="nc">Set</span><span class="p">[</span><span class="nc">String</span><span class="p">]])</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">(</span><span class="n">acc</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="n">depsOf</span><span class="p">(</span><span class="n">node</span><span class="p">).</span><span class="n">foldLeft</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">dep</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="n">a</span><span class="p">.</span><span class="n">updated</span><span class="p">(</span><span class="n">dep</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">getOrElse</span><span class="p">(</span><span class="n">dep</span><span class="p">,</span><span class="w"> </span><span class="nc">Set</span><span class="p">.</span><span class="n">empty</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">node</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">inDegree</span><span class="p">:</span><span class="w"> </span><span class="nc">Map</span><span class="p">[</span><span class="nc">String</span><span class="p">,</span><span class="w"> </span><span class="nc">Int</span><span class="p">]</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="n">nodes</span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">depsOf</span><span class="p">(</span><span class="n">n</span><span class="p">).</span><span class="n">size</span><span class="w"> </span><span class="p">}.</span><span class="n">toMap</span>
+</span></code></pre></div>
+<p><code>dependents</code> invierte el grafo (de "quién necesito" a "quién me necesita") usando solo <code>foldLeft</code> y <code>Map.updated</code> — sin variables mutables. <code>inDegree</code> mapea cada nodo a cuántas dependencias tiene directas.</p>
+<h3 id="estructura-de-datos-en-uso">Estructura de datos en uso</h3>
+<table>
+<thead>
+<tr>
+<th>Estructura</th>
+<th>Rol</th>
+<th>Complejidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Map[String, Set[String]]</code></td>
+<td>Grafo de adyacencia</td>
+<td>lookup O(1) avg</td>
+</tr>
+<tr>
+<td><code>Set[String]</code></td>
+<td>Dependencias de un nodo</td>
+<td>member O(1), sin dups</td>
+</tr>
+<tr>
+<td><code>Map[String, Int]</code></td>
+<td>In-degree por nodo</td>
+<td>lookup/update O(1) avg</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-resolverscala-dos-algoritmos-mismas-estructuras">5. <code>Resolver.scala</code> — Dos algoritmos, mismas estructuras</h2>
+<p>Ambos algoritmos implementan <strong>topological sort</strong> y retornan el mismo ADT:</p>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">sealed</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="nc">ResolveResult</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BuildOrder</span><span class="p">(</span><span class="n">order</span><span class="p">:</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">String</span><span class="p">])</span><span class="w">      </span><span class="k">extends</span><span class="w"> </span><span class="nc">ResolveResult</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CycleDetected</span><span class="p">(</span><span class="n">cycle</span><span class="p">:</span><span class="w"> </span><span class="nc">Vector</span><span class="p">[</span><span class="nc">String</span><span class="p">])</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">ResolveResult</span>
+</span></code></pre></div>
+<p>Usar un ADT sellado garantiza que el código que consume el resultado <strong>debe</strong> manejar ambos casos — el compilador no deja ignorar <code>CycleDetected</code>.</p>
+<hr />
+<h3 id="51-algoritmo-de-kahn-bfs">5.1 Algoritmo de Kahn (BFS)</h3>
+<p><strong>Idea:</strong> procesar iterativamente los nodos sin dependencias pendientes, reduciendo el in-degree de sus sucesores.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>1. Calcular in-degree de todos los nodos
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>2. Encolar todos los nodos con in-degree == 0
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>3. Mientras la cola no esté vacía:
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>   a. Desencolar nodo N → agregarlo al resultado
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>   b. Para cada nodo M que depende de N: decrementar in-degree(M)
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>   c. Si in-degree(M) == 0, encolar M
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>4. Si resultado.length &lt; total nodos → hay un ciclo
+</span></code></pre></div>
+<p><strong>Estructuras de datos:</strong></p>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// BFS frontier — immutable Queue de Scala</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">val</span><span class="w"> </span><span class="n">initQueue</span><span class="p">:</span><span class="w"> </span><span class="nc">Queue</span><span class="p">[</span><span class="nc">String</span><span class="p">]</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nc">Queue</span><span class="p">.</span><span class="n">from</span><span class="p">(</span><span class="n">initDegree</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">_</span><span class="p">.</span><span class="n">_2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">).</span><span class="n">keys</span><span class="p">.</span><span class="n">toList</span><span class="p">.</span><span class="n">sorted</span><span class="p">)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nd">@annotation</span><span class="p">.</span><span class="n">tailrec</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">loop</span><span class="p">(</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="n">queue</span><span class="p">:</span><span class="w">  </span><span class="nc">Queue</span><span class="p">[</span><span class="nc">String</span><span class="p">],</span><span class="w">   </span><span class="c1">// FIFO frontier</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="n">degree</span><span class="p">:</span><span class="w"> </span><span class="nc">Map</span><span class="p">[</span><span class="nc">String</span><span class="p">,</span><span class="w"> </span><span class="nc">Int</span><span class="p">],</span><span class="w"> </span><span class="c1">// in-degree actualizado</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="n">result</span><span class="p">:</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">String</span><span class="p">]</span><span class="w">      </span><span class="c1">// orden acumulado</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">):</span><span class="w"> </span><span class="nc">ResolveResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
+</span></code></pre></div>
+<p><code>Queue[String]</code> de Scala es una cola funcional e inmutable. <code>dequeue</code> retorna <code>(elemento, nuevaCola)</code> sin mutar nada. El loop es <strong>tail-recursive</strong> (<code>@tailrec</code> lo verifica en compilación).</p>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">val</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="n">rest</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="n">dequeue</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kd">val</span><span class="w"> </span><span class="p">(</span><span class="n">newDegree</span><span class="p">,</span><span class="w"> </span><span class="n">newQueue</span><span class="p">)</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="n">dependents</span><span class="p">.</span><span class="n">getOrElse</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="nc">Set</span><span class="p">.</span><span class="n">empty</span><span class="p">).</span><span class="n">foldLeft</span><span class="p">((</span><span class="n">degree</span><span class="p">,</span><span class="w"> </span><span class="n">rest</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="p">((</span><span class="n">deg</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">),</span><span class="w"> </span><span class="n">dependent</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">updated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">deg</span><span class="p">(</span><span class="n">dependent</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">nextQ</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">updated</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">dependent</span><span class="p">)</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">q</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">      </span><span class="p">(</span><span class="n">deg</span><span class="p">.</span><span class="n">updated</span><span class="p">(</span><span class="n">dependent</span><span class="p">,</span><span class="w"> </span><span class="n">updated</span><span class="p">),</span><span class="w"> </span><span class="n">nextQ</span><span class="p">)</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">loop</span><span class="p">(</span><span class="n">newQueue</span><span class="p">,</span><span class="w"> </span><span class="n">newDegree</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">:+</span><span class="w"> </span><span class="n">node</span><span class="p">)</span>
+</span></code></pre></div>
+<p><code>foldLeft</code> recorre el conjunto de dependientes actualizando el <code>Map</code> de grados y la <code>Queue</code> de forma completamente inmutable — cada iteración produce nuevos valores, los anteriores no se modifican.</p>
+<hr />
+<h3 id="52-dfs-topologico">5.2 DFS topológico</h3>
+<p><strong>Idea:</strong> hacer DFS desde cada nodo; agregar un nodo al resultado solo después de haber visitado todos sus predecesores (post-order). Un ciclo se detecta si al visitar un nodo, este ya está en el stack de llamadas actual.</p>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">State</span><span class="p">(</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="n">visited</span><span class="p">:</span><span class="w"> </span><span class="nc">Set</span><span class="p">[</span><span class="nc">String</span><span class="p">],</span><span class="w">    </span><span class="c1">// nodos completamente procesados</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="n">inStack</span><span class="p">:</span><span class="w"> </span><span class="nc">Set</span><span class="p">[</span><span class="nc">String</span><span class="p">],</span><span class="w">    </span><span class="c1">// nodos en el camino DFS actual</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="n">path</span><span class="p">:</span><span class="w">    </span><span class="nc">Vector</span><span class="p">[</span><span class="nc">String</span><span class="p">],</span><span class="w"> </span><span class="c1">// camino actual (para reconstruir ciclo)</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="n">result</span><span class="p">:</span><span class="w">  </span><span class="nc">List</span><span class="p">[</span><span class="nc">String</span><span class="p">]</span><span class="w">    </span><span class="c1">// acumulador post-order</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>El <code>State</code> se pasa explícitamente a través de la recursión — no hay variables globales mutables. <code>Either[Vector[String], State]</code> funciona como manejo de errores puramente funcional: <code>Left(ciclo)</code> se propaga automáticamente hacia arriba sin excepciones.</p>
+<div class="language-scala highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">visit</span><span class="p">(</span><span class="n">node</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">:</span><span class="w"> </span><span class="nc">State</span><span class="p">):</span><span class="w"> </span><span class="nc">Either</span><span class="p">[</span><span class="nc">Vector</span><span class="p">[</span><span class="nc">String</span><span class="p">],</span><span class="w"> </span><span class="nc">State</span><span class="p">]</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">inStack</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">cycleStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="nc">Left</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">drop</span><span class="p">(</span><span class="n">cycleStart</span><span class="p">)</span><span class="w"> </span><span class="o">:+</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w">   </span><span class="c1">// ciclo detectado</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">visited</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="nc">Right</span><span class="p">(</span><span class="n">state</span><span class="p">)</span><span class="w">                                  </span><span class="c1">// ya procesado</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="k">else</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="c1">// Visitar todas las dependencias primero (DFS recursivo)</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">afterDeps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">graph</span><span class="p">.</span><span class="n">depsOf</span><span class="p">(</span><span class="n">node</span><span class="p">).</span><span class="n">foldLeft</span><span class="p">(</span><span class="nc">Right</span><span class="p">(</span><span class="n">entering</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="nc">Left</span><span class="p">(</span><span class="n">cycle</span><span class="p">),</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w">  </span><span class="o">=&gt;</span><span class="w"> </span><span class="nc">Left</span><span class="p">(</span><span class="n">cycle</span><span class="p">)</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="nc">Right</span><span class="p">(</span><span class="n">st</span><span class="p">),</span><span class="w"> </span><span class="n">dep</span><span class="p">)</span><span class="w">  </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">visit</span><span class="p">(</span><span class="n">dep</span><span class="p">,</span><span class="w"> </span><span class="n">st</span><span class="p">)</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="c1">// Post-order: agregar el nodo al resultado después de sus deps</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="n">afterDeps</span><span class="p">.</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">st</span><span class="w"> </span><span class="o">=&gt;</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">      </span><span class="n">st</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Por qué <code>Vector</code> para el path y no <code>List</code>:</strong><br />
+<code>Vector</code> tiene <code>append</code> (<code>:+</code>) en O(1) amortizado e <code>indexOf</code> eficiente. <code>List</code> tiene <code>append</code> en O(n) — para un path que crece elemento por elemento, <code>Vector</code> es la elección correcta.</p>
+<p><strong>Por qué dos <code>Set</code> distintos (<code>visited</code> e <code>inStack</code>):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Set</th>
+<th>Pregunta que responde</th>
+<th>Cuándo se agrega</th>
+<th>Cuándo se elimina</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>visited</code></td>
+<td>¿Ya terminé este nodo?</td>
+<td>Al salir del DFS (post-order)</td>
+<td>Nunca</td>
+</tr>
+<tr>
+<td><code>inStack</code></td>
+<td>¿Estoy en medio de este nodo?</td>
+<td>Al entrar al DFS</td>
+<td>Al salir (post-order)</td>
+</tr>
+</tbody>
+</table>
+<p>Un nodo en <code>inStack</code> pero no en <code>visited</code> indica que estamos en medio de su procesamiento. Si encontramos ese nodo de nuevo → ciclo.</p>
+<hr />
+<h2 id="6-salida-del-programa">6. Salida del programa</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sbt<span class="w"> </span><span class="s2">&quot;runMain entrega4.Main4&quot;</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>────────────────────────────────────────────────────────
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  Scenario 1 — Package manager (no cycles)
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>────────────────────────────────────────────────────────
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>  [Kahn/BFS] Build order:
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>     1. base64       4. yaml-parser   7. config
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>     2. crypto       5. json-parser   8. http-client
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>     3. logger       6. tls           9. app
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>  [DFS] Build order:
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>     1. base64       4. tls           7. yaml-parser
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>     2. json-parser  5. logger        8. config
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>     3. crypto       6. http-client   9. app
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>────────────────────────────────────────────────────────
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>  Scenario 2 — Course prerequisites (no cycles)
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>────────────────────────────────────────────────────────
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>  [Kahn/BFS] Build order:
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>     1. CC1010  2. MA1031  3. CC2003  4. MA2031  5. CC2016  6. CC3056
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>  [DFS] Build order:
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>     1. CC1010  2. CC2003  3. MA1031  4. MA2031  5. CC2016  6. CC3056
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>────────────────────────────────────────────────────────
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>  Scenario 3 — Circular dependency (cycle expected)
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>────────────────────────────────────────────────────────
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>  [Kahn/BFS] *** CYCLE DETECTED ***  A → B → C → D
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>  [DFS]      *** CYCLE DETECTED ***  B → C → D → B
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>────────────────────────────────────────────────────────
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>  Scenario 4 — Build system (13 packages, 2 subgraphs)
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>────────────────────────────────────────────────────────
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>  [Kahn/BFS] Build order:
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>     1. akka-core   5. node-core   9. webpack
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>     2. docker      6. akka-http  10. babel
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>     3. jdbc        7. slick      11. backend
+</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>     4. logback     8. react      12. frontend  13. deploy
+</span></code></pre></div>
+<p>Ambos algoritmos producen un <strong>orden topológico válido</strong> (todo nodo aparece después de sus dependencias). Pueden diferir en el orden relativo de nodos independientes — ambos son correctos.</p>
+<hr />
+<h2 id="7-resumen-de-estructuras-de-datos">7. Resumen de estructuras de datos</h2>
+<table>
+<thead>
+<tr>
+<th>Estructura</th>
+<th>Dónde</th>
+<th>Qué resuelve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Map[String, Set[String]]</code></td>
+<td><code>Graph.edges</code></td>
+<td>Grafo de adyacencia compacto</td>
+</tr>
+<tr>
+<td><code>Set[String]</code></td>
+<td>Dependencias, <code>visited</code>, <code>inStack</code></td>
+<td>Membresía O(1), sin duplicados</td>
+</tr>
+<tr>
+<td><code>Map[String, Int]</code></td>
+<td><code>inDegree</code> en Kahn</td>
+<td>Contador de dependencias pendientes</td>
+</tr>
+<tr>
+<td><code>Map[String, Set[String]]</code></td>
+<td><code>dependents</code> en Kahn</td>
+<td>Grafo inverso para actualizar in-degrees</td>
+</tr>
+<tr>
+<td><code>Queue[String]</code></td>
+<td>Frontier BFS en Kahn</td>
+<td>FIFO funcional e inmutable</td>
+</tr>
+<tr>
+<td><code>List[String]</code></td>
+<td>Resultado en ambos algoritmos</td>
+<td>Secuencia ordenada acumulada</td>
+</tr>
+<tr>
+<td><code>Vector[String]</code></td>
+<td>Path DFS</td>
+<td>Append O(1) + acceso por índice para ciclos</td>
+</tr>
+<tr>
+<td><code>Either[V, State]</code></td>
+<td>Retorno de <code>visit</code> en DFS</td>
+<td>Propagación de error sin excepciones</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-comparacion-kahn-vs-dfs">8. Comparación Kahn vs DFS</h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Kahn (BFS)</th>
+<th>DFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Estilo</td>
+<td>Iterativo (loop tail-recursive)</td>
+<td>Recursivo</td>
+</tr>
+<tr>
+<td>Detección de ciclo</td>
+<td>Implícita: resultado incompleto</td>
+<td>Explícita: back-edge en <code>inStack</code></td>
+</tr>
+<tr>
+<td>Reporte del ciclo</td>
+<td>Nodos sin resolver (no el camino exacto)</td>
+<td>Camino exacto del ciclo</td>
+</tr>
+<tr>
+<td>Orden del resultado</td>
+<td>BFS-level order</td>
+<td>DFS post-order</td>
+</tr>
+<tr>
+<td>Paralelismo</td>
+<td>Fácil: todos los nodos de nivel 0 son independientes</td>
+<td>Más complejo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-recursos">9. Recursos</h2>
+<ul>
+<li>Scala Docs — Immutable Queue: https://www.scala-lang.org/api/current/scala/collection/immutable/Queue.html</li>
+<li>Scala Docs — Collections overview: https://docs.scala-lang.org/overviews/collections-2.13/introduction.html</li>
+<li>Kahn's algorithm: Kahn, A.B. (1962). <em>Topological sorting of large networks</em>. CACM.</li>
+<li>Scastie (entorno online): https://scastie.scala-lang.org/</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.top", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
